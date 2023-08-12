@@ -13,7 +13,7 @@ import AppLogo from "../Common/AppLogo";
 
 export default function SiteFooter() {
   return (
-    <Footer className="dark:bg-secondary bg-secondary/5" container>
+    <Footer className="dark:bg-secondary/20 p-0 bg-secondary/5" container>
       <div className="w-full">
         <Layout>
           <div className="grid  w-full justify-between sm:flex sm:justify-between md:flex md:grid-cols-1">
@@ -71,7 +71,7 @@ export default function SiteFooter() {
         </Layout>
         <Footer.Divider />
         <Layout>
-          <div className="w-full sm:flex sm:items-center sm:justify-between">
+          <div className="w-full p-5 sm:flex sm:items-center sm:justify-between">
             <Footer.Copyright by="Flowbite™" href="#" year={2022} />
             <div className="mt-4 flex space-x-6 sm:mt-0 sm:justify-center">
               <Footer.Icon href="#" icon={BsFacebook} />

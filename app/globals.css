@@ -20,6 +20,6 @@
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
+  color: var(--secondary-color);
   background: white;
 }
