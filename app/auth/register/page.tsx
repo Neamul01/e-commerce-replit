@@ -1,4 +1,6 @@
+import SocialLogins from "@/components/Common/SocialLogins";
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 
 // layout for page
@@ -10,34 +12,7 @@ export default function Register() {
         <div className="flex content-center items-center justify-center h-full">
           <div className="w-full lg:w-6/12 px-4">
             <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg shadow-primary rounded-lg border-0 bg-white">
-              <div className="rounded-t mb-0 px-6 py-6">
-                <div className="text-center mb-3">
-                  <h6 className="text-blueGray-500 text-sm font-bold">
-                    Sign up with
-                  </h6>
-                </div>
-                <div className="btn-wrapper text-center">
-                  <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-2 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                    type="button"
-                  >
-                    <div className="w-5 h-5 mr-1 relative">
-                      <Image src="/img/github.svg" fill alt="..." />
-                    </div>
-                    Github
-                  </button>
-                  <button
-                    className="bg-white active:bg-blueGray-50 text-blueGray-700 px-4 py-2 rounded outline-none focus:outline-none mr-1 mb-1 uppercase shadow hover:shadow-md inline-flex items-center font-bold text-xs ease-linear transition-all duration-150"
-                    type="button"
-                  >
-                    <div className="w-5 h-5 mr-1 relative">
-                      <Image src="/img/google.svg" fill alt="..." />
-                    </div>
-                    Google
-                  </button>
-                </div>
-                <hr className="mt-6 border-b-1 border-blueGray-300" />
-              </div>
+              <SocialLogins variant="register" />
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
                   <small>Or sign up with credentials</small>
@@ -103,6 +78,18 @@ export default function Register() {
                         </a>
                       </span>
                     </label>
+                  </div>
+                  <div className="flex justify-center mt-2">
+                    <span className="ml-2 text-xs font-semibold text-blueGray-600">
+                      Already have an account?
+                      <Link
+                        href="/auth/login"
+                        className="text-blue-500 underline hover:text-primary ml-2"
+                        // onClick={(e) => e.preventDefault()}
+                      >
+                        LogIn
+                      </Link>
+                    </span>
                   </div>
 
                   <div className="text-center mt-6">
