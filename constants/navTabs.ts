@@ -6,17 +6,12 @@ export const navbarTabs = [
   },
   {
     id: 2,
-    title: "Media",
-    href: "/media",
-  },
-  {
-    id: 3,
     title: "About",
     href: "/about",
   },
   {
-    id: 4,
-    title: "Messages",
-    href: "/messages",
+    id: 3,
+    title: "Dashboard",
+    href: "/admin/dashboard",
   },
 ];

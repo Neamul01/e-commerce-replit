@@ -3,8 +3,6 @@ import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 
-// layout for page
-
 export default function Register() {
   return (
     <div className="">
