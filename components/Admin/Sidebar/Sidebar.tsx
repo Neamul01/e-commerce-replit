@@ -1,15 +1,15 @@
-'use client'
-import React, { useState } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
+"use client";
+import React, { useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 
-import NotificationDropdown from '@/components/Admin/Dropdowns/NotificationDropdown'
-import UserDropdown from '@/components/Admin/Dropdowns/UserDropdown'
-import AppLogo from '@/components/Common/AppLogo'
+import NotificationDropdown from "@/components/Admin/Dropdowns/NotificationDropdown";
+import UserDropdown from "@/components/Admin/Dropdowns/UserDropdown";
+import AppLogo from "@/components/Common/AppLogo";
 
 export default function Sidebar() {
-  const [collapseShow, setCollapseShow] = useState(false)
-  const router = usePathname()
+  const [collapseShow, setCollapseShow] = useState(false);
+  const router = usePathname();
 
   const adminRoutes = adminPages.map((page) => {
     return (
@@ -17,39 +17,25 @@ export default function Sidebar() {
         <Link
           href={page.href}
           className={
-            'text-xs uppercase py-3 font-bold block ' +
+            "text-xs uppercase py-3 font-bold block " +
             (router.indexOf(page.href) !== -1
-              ? 'text-primary bg-secondary/10 rounded-lg hover:text-lightBlue-600'
-              : 'text-secondary/80 hover:text-blueGray-500')
+              ? "text-primary bg-secondary/10 rounded-lg hover:text-lightBlue-600"
+              : "text-secondary/80 hover:text-blueGray-500")
           }
         >
           <i
             className={
-              'fas fa-tv mr-2 text-sm ' +
+              "fas fa-tv mr-2 text-sm " +
               (router.indexOf(page.href) !== -1
-                ? 'opacity-75'
-                : 'text-blueGray-300')
+                ? "opacity-75"
+                : "text-blueGray-300")
             }
-          ></i>{' '}
+          ></i>{" "}
           {page.name}
         </Link>
       </li>
-    )
-  })
-
-  const authRoutes = authPages.map((page) => (
-    <li key={page.href} className="items-center">
-      <Link legacyBehavior href={page.href}>
-        <a
-          href="#pablo"
-          className="text-secondary/80 hover:text-blueGray-500 text-xs uppercase py-3 font-bold block"
-        >
-          <i className="fas fa-clipboard-list text-blueGray-300 mr-2 text-sm"></i>
-          {page.name}
-        </a>
-      </Link>
-    </li>
-  ))
+    );
+  });
 
   const collapseMenu = (
     <button
@@ -59,7 +45,7 @@ export default function Sidebar() {
     >
       <i className="fas fa-bars"></i>i
     </button>
-  )
+  );
 
   return (
     <>
@@ -76,15 +62,6 @@ export default function Sidebar() {
             <ul className="md:flex-col md:min-w-full flex flex-col list-none">
               {adminRoutes}
             </ul>
-            <div className="">
-              <h6 className="md:min-w-full text-primary text-xs uppercase font-bold block pt-1 pb-2 no-underline">
-                Auth Pages
-              </h6>
-              {/* Navigation */}
-              <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-                {authRoutes}
-              </ul>
-            </div>
           </div>
 
           {/* ******************mobile */}
@@ -101,7 +78,7 @@ export default function Sidebar() {
           {collapseShow === false ? null : (
             <div
               className={
-                'md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded bg-white m-2 py-3 px-6'
+                "md:flex md:flex-col md:items-stretch md:opacity-100 md:relative md:mt-4 md:shadow-none shadow absolute top-0 left-0 right-0 z-40 overflow-y-auto overflow-x-hidden h-auto items-center flex-1 rounded bg-white m-2 py-3 px-6"
               }
             >
               {/* Collapse header */}
@@ -128,53 +105,28 @@ export default function Sidebar() {
               <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                 {adminRoutes}
               </ul>
-
-              {/* Divider */}
-              <hr className="my-4 md:min-w-full" />
-              {/* Heading */}
-              <h6 className="md:min-w-full text-primary text-xs uppercase font-bold block pt-1 pb-4 no-underline">
-                Auth Pages
-              </h6>
-              {/* Navigation */}
-
-              <ul className="md:flex-col md:min-w-full flex flex-col list-none md:mb-4">
-                {authRoutes}
-              </ul>
             </div>
           )}
         </div>
       </nav>
     </>
-  )
+  );
 }
-
-const authPages = [
-  {
-    id: 1,
-    name: 'Login',
-    href: '/auth/login',
-  },
-  {
-    id: 2,
-    name: 'Register',
-    href: '/auth/register',
-  },
-]
 
 const adminPages = [
   {
     id: 1,
-    name: 'Dashboard',
-    href: '/admin/dashboard',
+    name: "Dashboard",
+    href: "/admin/dashboard",
   },
   {
     id: 2,
-    name: 'Settings',
-    href: '/admin/settings',
+    name: "Settings",
+    href: "/admin/settings",
   },
   {
     id: 3,
-    name: 'Tables',
-    href: '/admin/tables',
+    name: "Tables",
+    href: "/admin/tables",
   },
-]
+];
