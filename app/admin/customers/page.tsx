@@ -6,6 +6,7 @@ import React from "react";
 import { AiFillEdit } from "react-icons/ai";
 
 export default function page() {
+  let formData;
   return (
     <div className=" bg-white">
       <div className="rounded-t mb-0 px-4 py-3 border-0 flex justify-between">
