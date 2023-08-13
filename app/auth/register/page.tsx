@@ -1,9 +1,27 @@
+"use client";
 import SocialLogins from "@/components/Common/SocialLogins";
+import { auth } from "@/firebase/clientApp";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import Link from "next/link";
-import React from "react";
+import React, { useState } from "react";
+import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 export default function Register() {
+  const [email, setEmail] = useState("hook@g.com");
+  const [password, setPassword] = useState("123456");
+  const [createUserWithEmailAndPassword, user, loading, error] =
+    useCreateUserWithEmailAndPassword(auth);
+
+  const handleEmailLogin = async (e: any) => {
+    e.preventDefault();
+
+    try {
+      await createUserWithEmailAndPassword(email, password);
+    } catch (error) {
+      console.error("Error signing in:", error);
+    }
+  };
   return (
     <div className="">
       <div className="container mx-auto px-4 h-full md:mt-20 md:mb-10">
@@ -13,6 +31,7 @@ export default function Register() {
               <SocialLogins variant="register" />
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
                 <div className="text-blueGray-400 text-center mb-3 font-bold">
+                  {/* {user && user.user.email} */}
                   <small>Or sign up with credentials</small>
                 </div>
                 <form>
@@ -83,7 +102,6 @@ export default function Register() {
                       <Link
                         href="/auth/login"
                         className="text-blue-500 underline hover:text-primary ml-2"
-                        // onClick={(e) => e.preventDefault()}
                       >
                         LogIn
                       </Link>
@@ -94,6 +112,7 @@ export default function Register() {
                     <button
                       className="bg-blueGray-800 active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
                       type="button"
+                      onClick={handleEmailLogin}
                     >
                       Create Account
                     </button>

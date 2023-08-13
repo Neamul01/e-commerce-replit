@@ -1,3 +1,4 @@
+"use client";
 import { auth } from "@/firebase/clientApp";
 import {
   GoogleAuthProvider,
