@@ -1,13 +1,33 @@
 "use client";
-import React from "react";
+import React, { useState } from "react";
 
-import CardTable from "@/components/Admin/Cards/CardTable";
-import Admin from "@/components/Layouts/Admin";
 import { AiFillEdit } from "react-icons/ai";
 import Table from "@/components/Common/Table";
 import { Button } from "flowbite-react";
+import AddProductModal from "@/components/Product/AddProductModal";
 
 export default function Tables() {
+  const [openModal, setOpenModal] = useState<string | undefined>();
+
+  const addData = (data: any) => {
+    console.log("addData", data);
+    setOpenModal(undefined);
+    // window.location.reload();
+    tableData.push({
+      productList: data.name,
+      productCode: data.code,
+      quantity: data.quantity,
+      price: data.price,
+      status: data.status,
+      id: tableData.length + 1,
+      amount: "$2,500 USD",
+      link: `/admin/products/${tableData.length + 1}`,
+    });
+  };
+
+  const handleOpenModal = () => {
+    setOpenModal("add-product");
+  };
   return (
     <>
       <div className="rounded-t mb-0 px-4 py-3 border-0 flex justify-between">
@@ -18,7 +38,7 @@ export default function Tables() {
             </h3>
           </div>
         </div>
-        <Button>Add a Product</Button>
+        <Button onClick={handleOpenModal}>Add a Product</Button>
       </div>
       <div className="flex flex-wrap mt-4">
         {/* <div className="w-full mb-12 px-4">
@@ -29,9 +49,23 @@ export default function Tables() {
           <Table columns={tableColumns} data={tableData} />
         </div>
       </div>
+      <AddProductModal
+        data={data}
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+        addData={addData}
+      />
     </>
   );
 }
+
+const data = {
+  name: "",
+  code: null,
+  quantity: null,
+  price: null,
+  status: "",
+};
 
 const tableColumns: Column[] = [
   {

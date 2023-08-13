@@ -8,7 +8,6 @@ import React, { useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 
 export default function Page() {
-  const router = useRouter();
   const [openModal, setOpenModal] = useState<string | undefined>();
 
   const addData = (data: any) => {
