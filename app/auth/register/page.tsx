@@ -1,6 +1,6 @@
 "use client";
 import SocialLogins from "@/components/Common/SocialLogins";
-import { auth } from "@/firebase/clientApp";
+// import { auth } from "@/firebase/clientApp";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import Image from "next/image";
 import Link from "next/link";
@@ -8,19 +8,19 @@ import React, { useState } from "react";
 import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 
 export default function Register() {
-  const [email, setEmail] = useState("hook@g.com");
-  const [password, setPassword] = useState("123456");
-  const [createUserWithEmailAndPassword, user, loading, error] =
-    useCreateUserWithEmailAndPassword(auth);
+  // const [email, setEmail] = useState("hook@g.com");
+  // const [password, setPassword] = useState("123456");
+  // const [createUserWithEmailAndPassword, user, loading, error] =
+  //   useCreateUserWithEmailAndPassword(auth);
 
   const handleEmailLogin = async (e: any) => {
     e.preventDefault();
 
-    try {
-      await createUserWithEmailAndPassword(email, password);
-    } catch (error) {
-      console.error("Error signing in:", error);
-    }
+    // try {
+    //   await createUserWithEmailAndPassword(email, password);
+    // } catch (error) {
+    //   console.error("Error signing in:", error);
+    // }
   };
   return (
     <div className="">
