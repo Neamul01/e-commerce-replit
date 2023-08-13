@@ -1,11 +1,7 @@
 "use client";
 import SocialLogins from "@/components/Common/SocialLogins";
-// import { auth } from "@/firebase/clientApp";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import Image from "next/image";
 import Link from "next/link";
-import React, { useState } from "react";
-import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
+import React from "react";
 
 export default function Register() {
   // const [email, setEmail] = useState("hook@g.com");

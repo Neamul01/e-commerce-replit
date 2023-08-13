@@ -1,9 +1,7 @@
 "use client";
 import AddCustomerModal from "@/components/Admin/Customer/AddCustomerModal";
-import CustomerDetails from "@/components/Admin/CustomerDetails";
 import Table from "@/components/Common/Table";
 import { Button } from "flowbite-react";
-import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 

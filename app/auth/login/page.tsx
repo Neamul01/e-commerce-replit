@@ -1,9 +1,6 @@
 import React from "react";
 import Link from "next/link";
-import Image from "next/image";
 import SocialLogins from "@/components/Common/SocialLogins";
-
-// layout for page
 
 export default function Login() {
   return (
