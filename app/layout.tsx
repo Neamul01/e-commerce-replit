@@ -19,12 +19,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
-        <AuthContextProvider>
-          <SiteNavbar />
-          {children}
-          <SiteFooter />
-        </AuthContextProvider>
+      <body className={inter.className} suppressHydrationWarning={true}>
+        {/* <AuthContextProvider> */}
+        <SiteNavbar />
+        {children}
+        <SiteFooter />
+        {/* </AuthContextProvider> */}
       </body>
     </html>
   );
