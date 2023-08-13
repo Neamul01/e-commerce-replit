@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React from "react";
 
 type Column = {
@@ -18,6 +19,9 @@ type TableProps = {
 };
 
 export default function Table({ columns, data }: TableProps) {
+  const firstLinkColumn = columns.find(
+    (column) => column.value && data[0][column.value] && data[0].link
+  );
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -38,7 +42,13 @@ export default function Table({ columns, data }: TableProps) {
             >
               {columns.map((column, columnIndex) => (
                 <td key={column.id || columnIndex} className="px-6 py-4">
-                  {column.content ? column.content(row) : row[column.value]}
+                  {firstLinkColumn && column === firstLinkColumn ? (
+                    <Link href={row.link}>{row[column.value]}</Link>
+                  ) : column.content ? (
+                    column.content(row)
+                  ) : (
+                    row[column.value]
+                  )}
                 </td>
               ))}
             </tr>
