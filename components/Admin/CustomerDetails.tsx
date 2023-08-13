@@ -1,8 +1,65 @@
-import React from 'react'
+"use client";
+import { Button } from "flowbite-react";
+import React, { ChangeEvent, FormEvent, useState } from "react";
 
-// components
+interface FormData {
+  username: string;
+  email: string;
+  firstName: string;
+  lastName: string;
+  address: string;
+  city: string;
+  country: string;
+  postalCode: string;
+  aboutMe: string;
+}
 
 export default function CardSettings() {
+  const [formData, setFormData] = useState<FormData>({
+    username: "lucky.jesse",
+    email: "jesse@example.com",
+    firstName: "Lucky",
+    lastName: "Jesse",
+    address: "Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09",
+    city: "New York",
+    country: "United States",
+    postalCode: "Postal Code",
+    aboutMe:
+      "A beautiful UI Kit and Admin for NextJS & Tailwind CSS. It is Free and Open Source.",
+  });
+
+  const handleChange = (
+    e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (e: FormEvent) => {
+    e.preventDefault();
+
+    console.log(formData);
+    // fetch("/api/your-endpoint", {
+    //   method: "POST",
+    //   headers: {
+    //     "Content-Type": "application/json",
+    //   },
+    //   body: JSON.stringify(formData),
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => {
+    //     console.log("API response:", data);
+    //     // Handle response as needed
+    //   })
+    //   .catch((error) => {
+    //     console.error("API error:", error);
+    //     // Handle error as needed
+    //   });
+  };
+
   return (
     <>
       <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-blueGray-100 border-0">
@@ -18,7 +75,7 @@ export default function CardSettings() {
           </div>
         </div>
         <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-          <form>
+          <form onSubmit={handleSubmit}>
             <h6 className="text-blueGray-400 text-sm mt-3 mb-6 font-bold uppercase">
               User Information
             </h6>
@@ -32,7 +89,9 @@ export default function CardSettings() {
                     Username
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
+                    name="username"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="lucky.jesse"
                   />
@@ -47,6 +106,7 @@ export default function CardSettings() {
                     Email address
                   </label>
                   <input
+                    onChange={handleChange}
                     type="email"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="jesse@example.com"
@@ -62,6 +122,7 @@ export default function CardSettings() {
                     First Name
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Lucky"
@@ -77,6 +138,7 @@ export default function CardSettings() {
                     Last Name
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Jesse"
@@ -100,6 +162,7 @@ export default function CardSettings() {
                     Address
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Bld Mihail Kogalniceanu, nr. 8 Bl 1, Sc 1, Ap 09"
@@ -115,7 +178,8 @@ export default function CardSettings() {
                     City
                   </label>
                   <input
-                    type="email"
+                    onChange={handleChange}
+                    type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="New York"
                   />
@@ -130,6 +194,7 @@ export default function CardSettings() {
                     Country
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="United States"
@@ -145,6 +210,7 @@ export default function CardSettings() {
                     Postal Code
                   </label>
                   <input
+                    onChange={handleChange}
                     type="text"
                     className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                     defaultValue="Postal Code"
@@ -177,9 +243,12 @@ export default function CardSettings() {
                 </div>
               </div>
             </div>
+            <div className="">
+              <Button type="submit">Submit</Button>
+            </div>
           </form>
         </div>
       </div>
     </>
-  )
+  );
 }

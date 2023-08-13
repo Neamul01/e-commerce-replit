@@ -53,7 +53,7 @@ const IndexDropdown = () => {
             Dashboard
           </a>
         </Link>
-        <Link href="/admin/settings">
+        <Link href="/admin/customers">
           <a
             href="#pablo"
             className={

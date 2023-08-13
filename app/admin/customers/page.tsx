@@ -1,6 +1,5 @@
 import CardProfile from "@/components/Admin/CardProfile";
-import CardSettings from "@/components/Admin/CardSettings";
-import Admin from "@/components/Layouts/Admin";
+import CardSettings from "@/components/Admin/CustomerDetails";
 import React from "react";
 
 export default function page() {

@@ -121,8 +121,8 @@ const adminPages = [
   },
   {
     id: 2,
-    name: "Settings",
-    href: "/admin/settings",
+    name: "Customers",
+    href: "/admin/customers",
   },
   {
     id: 3,
