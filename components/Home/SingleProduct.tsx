@@ -2,16 +2,9 @@
 
 import { Card, Rating } from "flowbite-react";
 import { useRouter } from "next/navigation";
+import { ProductData } from "./ProductLists";
 
-type item = {
-  id: number;
-  name: string;
-  price: number;
-  rating: number;
-  image: string;
-};
-
-export default function ECommerceCard({ item }: { item: item }) {
+export default function ECommerceCard({ item }: { item: ProductData }) {
   const router = useRouter();
   const handleProductClick = () => {
     router.push(`/${item.id}`);

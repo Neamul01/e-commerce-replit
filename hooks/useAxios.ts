@@ -1,5 +1,7 @@
 import axios from "axios";
 
-const axiosInterceptorInstance = axios.create({
-  baseURL: "https://otp.dev/api/", // Replace with your API base URL
+const useAxios = axios.create({
+  baseURL:
+    "https://raw.githubusercontent.com/Neamul01/e-commerce-replit/main/data",
 });
+export default useAxios;
