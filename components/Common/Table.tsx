@@ -43,10 +43,12 @@ export default function Table({ columns, data }: TableProps) {
                     column.content ? (
                       column.content(row)
                     ) : (
+                      /* @ts-ignore */
                       row[column.value]
                     )
                   ) : (
                     <Link href={row.link ? row.link : "#"}>
+                      {/* @ts-ignore */}
                       {row[column.value]}
                     </Link>
                   )}
