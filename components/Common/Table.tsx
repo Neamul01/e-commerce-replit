@@ -19,9 +19,6 @@ type TableProps = {
 };
 
 export default function Table({ columns, data }: TableProps) {
-  const firstLinkColumn = columns.find(
-    (column) => column.value && data[0][column.value] && data[0].link
-  );
   return (
     <div className="relative overflow-x-auto">
       <table className="w-full text-sm text-left text-gray-500 dark:text-gray-400">
@@ -42,12 +39,14 @@ export default function Table({ columns, data }: TableProps) {
             >
               {columns.map((column, columnIndex) => (
                 <td key={column.id || columnIndex} className="px-6 py-4">
-                  {firstLinkColumn && column === firstLinkColumn ? (
-                    <Link href={row.link}>{row[column.value]}</Link>
-                  ) : column.content ? (
-                    column.content(row)
+                  {column.label === "Action" ? (
+                    column.content ? (
+                      column.content(row)
+                    ) : (
+                      row[column.value]
+                    )
                   ) : (
-                    row[column.value]
+                    <Link href={row.link}>{row[column.value]}</Link>
                   )}
                 </td>
               ))}
