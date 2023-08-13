@@ -9,10 +9,19 @@ import Table from "@/components/Common/Table";
 export default function Tables() {
   return (
     <Admin>
-      <div className="flex flex-wrap mt-4">
-        <div className="w-full mb-12 px-4">
-          <CardTable />
+      <div className="rounded-t mb-0 px-4 py-3 border-0">
+        <div className="flex flex-wrap items-center">
+          <div className="relative w-full px-4 max-w-full flex-grow flex-1">
+            <h3 className={"font-semibold text-lg text-secondary/80"}>
+              Product list
+            </h3>
+          </div>
         </div>
+      </div>
+      <div className="flex flex-wrap mt-4">
+        {/* <div className="w-full mb-12 px-4">
+          <CardTable />
+        </div> */}
         <div className="w-full mb-12 px-4">
           {/* <CardTable color="dark" /> */}
           <Table columns={tableColumns} data={tableData} />
@@ -54,6 +63,7 @@ const tableColumns = [
     value: "status",
   },
   {
+    id: 7,
     label: "Action",
     content: (item: any) => {
       return (

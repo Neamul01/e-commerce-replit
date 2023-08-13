@@ -126,7 +126,7 @@ const adminPages = [
   },
   {
     id: 3,
-    name: "Tables",
-    href: "/admin/tables",
+    name: "Products",
+    href: "/admin/products",
   },
 ];
