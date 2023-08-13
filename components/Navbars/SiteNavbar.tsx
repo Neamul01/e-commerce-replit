@@ -7,7 +7,6 @@ import Layout from "../Layouts/Layout/Layout";
 import { usePathname } from "next/navigation";
 import AppLogo from "../Common/AppLogo";
 import { useActivePaths } from "@/hooks/useActivePaths";
-import UserAuth from "@/context/AuthContext";
 
 export default function SiteNavbar() {
   const router = usePathname();
