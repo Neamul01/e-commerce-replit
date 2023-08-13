@@ -8,7 +8,7 @@ import Table from "@/components/Common/Table";
 
 export default function Tables() {
   return (
-    <Admin>
+    <>
       <div className="rounded-t mb-0 px-4 py-3 border-0">
         <div className="flex flex-wrap items-center">
           <div className="relative w-full px-4 max-w-full flex-grow flex-1">
@@ -27,7 +27,7 @@ export default function Tables() {
           <Table columns={tableColumns} data={tableData} />
         </div>
       </div>
-    </Admin>
+    </>
   );
 }
 

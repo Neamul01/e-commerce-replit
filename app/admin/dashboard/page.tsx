@@ -13,7 +13,7 @@ import Admin from "@/components/Layouts/Admin";
 
 export default function Dashboard() {
   return (
-    <Admin>
+    <>
       <div className="flex flex-wrap">
         <div className="w-full xl:w-8/12 mb-12 xl:mb-0 px-4">
           {/* <CardLineChart2 /> */}
@@ -29,6 +29,6 @@ export default function Dashboard() {
           <CardSocialTraffic />
         </div>
       </div>
-    </Admin>
+    </>
   );
 }
