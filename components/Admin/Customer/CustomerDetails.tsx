@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "flowbite-react";
+import { usePathname } from "next/navigation";
 import React, { ChangeEvent, FormEvent, useState } from "react";
 
 interface FormData {
@@ -17,9 +18,23 @@ interface FormData {
 }
 
 export default function AddCustomer({ data }: { data: FormData }) {
+  const pathname = usePathname();
   const [formData, setFormData] = useState<FormData>({
     ...data,
   });
+  if (pathname === "/admin/customers/add") {
+    formData.username = "";
+    formData.email = "";
+    formData.phone = "";
+    formData.firstName = "";
+    formData.lastName = "";
+    formData.address = "";
+    formData.city = "";
+    formData.country = "";
+    formData.postalCode = "";
+    formData.aboutMe = "";
+    formData.state = "";
+  }
 
   const handleChange = (
     e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>

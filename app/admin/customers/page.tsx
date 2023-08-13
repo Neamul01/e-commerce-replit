@@ -1,12 +1,27 @@
 "use client";
+import AddCustomerModal from "@/components/Admin/Customer/AddCustomerModal";
 import CustomerDetails from "@/components/Admin/CustomerDetails";
 import Table from "@/components/Common/Table";
 import { Button } from "flowbite-react";
-import React from "react";
+import { useRouter } from "next/navigation";
+import React, { useState } from "react";
 import { AiFillEdit } from "react-icons/ai";
 
-export default function page() {
-  let formData;
+export default function Page() {
+  const router = useRouter();
+  const [openModal, setOpenModal] = useState<string | undefined>();
+
+  const addData = (data: any) => {
+    console.log("addData", data);
+    setOpenModal(undefined);
+    // window.location.reload();
+    tableData.push({ ...data, id: 4 });
+  };
+
+  const handleOpenModal = () => {
+    setOpenModal("form-elements");
+  };
+
   return (
     <div className=" bg-white">
       <div className="rounded-t mb-0 px-4 py-3 border-0 flex justify-between">
@@ -17,7 +32,7 @@ export default function page() {
             </h3>
           </div>
         </div>
-        <Button>Add a Customer</Button>
+        <Button onClick={handleOpenModal}>Add a Customer</Button>
       </div>
       <Table columns={tableColumns} data={tableData} />
       {/* <div className="w-full lg:w-8/12 px-4">
@@ -26,9 +41,26 @@ export default function page() {
       <div className="w-full lg:w-4/12 px-4">
         <CardProfile />
       </div> */}
+      <AddCustomerModal
+        data={data}
+        setOpenModal={setOpenModal}
+        openModal={openModal}
+        addData={addData}
+        mode="add"
+      />
     </div>
   );
 }
+const data = {
+  username: "",
+  firstName: "",
+  lastName: "",
+  email: "",
+  phone: "",
+  address: "",
+  city: "",
+  state: "",
+};
 
 const tableColumns = [
   {

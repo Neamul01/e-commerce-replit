@@ -46,7 +46,9 @@ export default function Table({ columns, data }: TableProps) {
                       row[column.value]
                     )
                   ) : (
-                    <Link href={row.link}>{row[column.value]}</Link>
+                    <Link href={row.link ? row.link : "#"}>
+                      {row[column.value]}
+                    </Link>
                   )}
                 </td>
               ))}
